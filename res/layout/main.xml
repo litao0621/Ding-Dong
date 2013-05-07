@@ -1,16 +1,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"   
     tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout 
+        android:id="@+id/titel"
+        android:background="@drawable/titel"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:padding="12dp"
+        > 
+        	
+        	  <ImageButton 
+                  android:id="@+id/editalarm"
+                  android:layout_alignParentLeft="true"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/btndelete"
+                  android:scaleType="centerInside" 
+                        	     
+                  />
+              <ImageButton 
+                  android:id="@+id/addalarm"
+                  android:layout_alignParentRight="true"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/btnadd"
+                  android:scaleType="centerInside"  
+                  
+                  />
+    </RelativeLayout>
+    <ImageView 
+        android:layout_below="@+id/titel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/actionbar_shadow"/>
 
 </RelativeLayout>
