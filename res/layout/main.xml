@@ -13,7 +13,7 @@
         > 
         	
         	  <ImageButton 
-                  android:id="@+id/editalarm"
+                  android:id="@+id/deletealarm"
                   android:layout_alignParentLeft="true"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"

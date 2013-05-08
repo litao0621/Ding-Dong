@@ -15,13 +15,18 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.lee.alarmclock.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:theme="@style/AddExit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity 
+            android:name="com.lee.alarmclock.AddActivity"
+            android:theme="@style/AddEnter"
+            ></activity>
     </application>
 
 </manifest>
