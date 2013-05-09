@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="green">#145a1e</color>
-    <color name="bg">#ffffff</color>
+    <color name="bg">#D9D6CF</color>
+    <color name="title">#ffffff</color>
+    <color name="black">#A2A3A2</color>
+    <color name="content">#FAFBFB</color>
+    <color name="transparent">#00000000</color>
+    <color name="dialogtit">#BFB691</color>
 </resources>

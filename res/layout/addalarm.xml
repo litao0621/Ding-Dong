@@ -1,13 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+     >
 
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+    <RelativeLayout 
+        android:id="@+id/titel"
+        android:background="@color/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        > 
+        	
+        	  <ImageButton 
+                  android:id="@+id/back"
+                  android:layout_alignParentLeft="true"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/btnback"
+                  android:scaleType="centerInside" 
+                        	     
+                  />
+              <ImageButton 
+                  android:id="@+id/save"
+                  android:layout_alignParentRight="true"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/btnsave"
+                  android:scaleType="centerInside"  
+                  
+                  />
+    </RelativeLayout>
+	<ImageView 
+	    android:id="@+id/titel_shadow"
+        android:layout_below="@+id/titel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/actionbar_shadow"/>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/titel_shadow"
+	    android:background="@drawable/addlist"
+	    android:orientation="vertical"
+	    
+	    android:layout_margin="5dp">
+	 	<LinearLayout 
+	 	    
+	 	    android:layout_width="match_parent"
+	 	    android:layout_height="wrap_content"
+	 	    android:orientation="horizontal"
+	 	    android:layout_margin="10dp">
+	 	    <TextView 
+	 	        
+	 	        android:layout_width="wrap_content"
+	 	        android:layout_height="wrap_content"
+	 	        android:text="重复"/>
+	 	    <TextView 
+	 	        android:id="@+id/setweek"
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:text="设置"	 
+	 	        android:clickable="true"
+	 	        android:focusable="true"	        
+	 	        android:gravity="right|center_vertical"
+	 	        android:drawableRight="@drawable/go"/>
+	 	</LinearLayout>
+	    <TextView android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="@color/black"/>
+	    <LinearLayout 
+	 	    android:layout_width="match_parent"
+	 	    android:layout_height="wrap_content"
+	 	    android:orientation="horizontal"
+	 	    android:layout_margin="10dp">
+	 	    <TextView 
+	 	        android:layout_width="wrap_content"
+	 	        android:layout_height="wrap_content"
+	 	        android:text="声音"/>
+	 	    <TextView 
+	 	        android:id="@+id/setvoice"
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:text="修改"
+	 	        android:clickable="true"
+	 	        android:focusable="true"
+	 	        android:gravity="right|center_vertical"
+	 	        android:drawableRight="@drawable/go"/>
+	 	</LinearLayout>
+	    
+	</LinearLayout>
+	
+</RelativeLayout>
