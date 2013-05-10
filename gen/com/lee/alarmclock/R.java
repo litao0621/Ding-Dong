@@ -55,21 +55,30 @@ public final class R {
         public static final int deletepres=0x7f02000f;
         public static final int go=0x7f020010;
         public static final int ic_launcher=0x7f020011;
-        public static final int save=0x7f020012;
-        public static final int savepres=0x7f020013;
-        public static final int titel=0x7f020014;
+        public static final int modelswitch=0x7f020012;
+        public static final int save=0x7f020013;
+        public static final int savepres=0x7f020014;
+        public static final int switch_off=0x7f020015;
+        public static final int switch_on=0x7f020016;
+        public static final int titel=0x7f020017;
+        public static final int tmpicker_bg=0x7f020018;
+        public static final int tmpicker_val=0x7f020019;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000b;
-        public static final int addalarm=0x7f0a0009;
+        public static final int action_settings=0x7f0a000f;
+        public static final int addalarm=0x7f0a000d;
         public static final int back=0x7f0a0001;
-        public static final int deletealarm=0x7f0a0008;
-        public static final int dispatch_item_select_state=0x7f0a0007;
-        public static final int dispatch_item_select_week=0x7f0a0006;
-        public static final int listweek=0x7f0a000a;
+        public static final int ckbModel=0x7f0a0007;
+        public static final int deletealarm=0x7f0a000c;
+        public static final int dispatch_item_select_state=0x7f0a000b;
+        public static final int dispatch_item_select_week=0x7f0a000a;
+        public static final int hour=0x7f0a0008;
+        public static final int listweek=0x7f0a000e;
+        public static final int mins=0x7f0a0009;
         public static final int save=0x7f0a0002;
-        public static final int setvoice=0x7f0a0005;
-        public static final int setweek=0x7f0a0004;
+        public static final int setting=0x7f0a0004;
+        public static final int setvoice=0x7f0a0006;
+        public static final int setweek=0x7f0a0005;
         public static final int titel=0x7f0a0000;
         public static final int titel_shadow=0x7f0a0003;
     }
@@ -90,7 +99,7 @@ public final class R {
     public static final class style {
         public static final int ActionBar=0x7f080002;
         public static final int AddEnter=0x7f080005;
-        public static final int AddExit=0x7f080006;
+        public static final int AddExit=0x7f080007;
         /**  进入添加动画. 
          */
         public static final int AnimationActivity=0x7f080003;
@@ -127,6 +136,7 @@ public final class R {
         public static final int AppTheme=0x7f080001;
         /** 模糊
          */
-        public static final int Dialog=0x7f080007;
+        public static final int Dialog=0x7f080008;
+        public static final int timepick=0x7f080006;
     }
 }

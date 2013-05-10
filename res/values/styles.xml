@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -35,6 +35,9 @@
     <style name="AddEnter" parent="AppTheme">
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>        
     </style>
+   	<style name="timepick">
+   	    
+   	</style>
     <style name="AddExit" parent="AppTheme">
         <item name="android:windowAnimationStyle">@style/AnimationActivityadd</item>        
     </style>

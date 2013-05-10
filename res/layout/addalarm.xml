@@ -39,6 +39,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/actionbar_shadow"/>
 	<LinearLayout 
+	    android:id="@+id/setting"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_below="@+id/titel_shadow"
@@ -61,7 +62,7 @@
 	 	        android:id="@+id/setweek"
 	 	        android:layout_width="fill_parent"
 	 	        android:layout_height="wrap_content"
-	 	        android:text="设置"	 
+	 	        android:text="仅一次"	 
 	 	        android:clickable="true"
 	 	        android:focusable="true"	        
 	 	        android:gravity="right|center_vertical"
@@ -89,7 +90,62 @@
 	 	        android:gravity="right|center_vertical"
 	 	        android:drawableRight="@drawable/go"/>
 	 	</LinearLayout>
+	 	<TextView android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="@color/black"/>
+	    <LinearLayout 
+	 	    android:layout_width="match_parent"
+	 	    android:layout_height="wrap_content"
+	 	    android:orientation="horizontal"
+	 	    android:layout_margin="10dp">
+	 	    <TextView 
+	 	        android:layout_width="wrap_content"
+	 	        android:layout_height="wrap_content"
+	 	        android:text="懒人模式"
+	 	        android:layout_weight="6"/>
+	 	    <CheckBox 
+	 	        android:id="@+id/ckbModel"
+	 	        android:layout_width="wrap_content"
+	 	        android:focusable="false"
+	 	        android:layout_height="wrap_content"
+	 	       	android:button="@drawable/modelswitch"	 	       	
+	 	        android:layout_weight="1"
+	 	        />
+	 	</LinearLayout>
+	</LinearLayout>
+	<LinearLayout
+	    android:layout_below="@+id/setting"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/addlist"
+		android:layout_marginLeft="5dp"
+		android:layout_marginRight="5dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginBottom="15dp"
+	    android:orientation="vertical"
+	    >
+		<TextView android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="时间设置"
+		    android:padding="10dp"		    
+		    android:gravity="center"/>
+		<LinearLayout 
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_gravity="center_horizontal"
+		android:paddingLeft="12dp"
+		android:paddingRight="12dp"
+		android:paddingTop="10dp">
+	  
+	  	<com.lee.widget.CustomTimePick android:id="@+id/hour"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1"/>
+		<com.lee.widget.CustomTimePick android:id="@+id/mins"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1"/>
+	</LinearLayout>
 	    
 	</LinearLayout>
-	
 </RelativeLayout>
