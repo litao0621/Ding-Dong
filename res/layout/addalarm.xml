@@ -93,7 +93,7 @@
 	 	<TextView android:layout_width="match_parent"
 	        android:layout_height="1dp"
 	        android:background="@color/black"/>
-	    <LinearLayout 
+	    <RelativeLayout 
 	 	    android:layout_width="match_parent"
 	 	    android:layout_height="wrap_content"
 	 	    android:orientation="horizontal"
@@ -102,16 +102,18 @@
 	 	        android:layout_width="wrap_content"
 	 	        android:layout_height="wrap_content"
 	 	        android:text="懒人模式"
-	 	        android:layout_weight="6"/>
+	 	        android:layout_centerVertical="true"
+	 	        />
 	 	    <CheckBox 
 	 	        android:id="@+id/ckbModel"
 	 	        android:layout_width="wrap_content"
 	 	        android:focusable="false"
 	 	        android:layout_height="wrap_content"
-	 	       	android:button="@drawable/modelswitch"	 	       	
-	 	        android:layout_weight="1"
+	 	       	android:button="@drawable/modelswitch"	 	       		 	        
+	 	        
+	 	        android:layout_alignParentRight="true"
 	 	        />
-	 	</LinearLayout>
+	 	</RelativeLayout>
 	</LinearLayout>
 	<LinearLayout
 	    android:layout_below="@+id/setting"
