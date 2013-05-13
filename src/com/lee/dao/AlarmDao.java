@@ -18,7 +18,7 @@ public class AlarmDao {
 	public AlarmDao(Context context) {
 		
 		// TODO Auto-generated constructor stub
-		this.context=context;
+		alarmDB = new DBOpenHelper(context);
 	}
 	public void  openDB() {
 		db=alarmDB.getWritableDatabase();
@@ -53,14 +53,14 @@ public class AlarmDao {
 	 * @param lasttime
 	 * @return 
 	 */
-	public boolean updaptData(int id,int hour,int minute,String weeklast,String music,int lasttime )
+	public boolean updaptData(int id,int hour,int minute,String weeklast,String music,int model )
 	  {
 	     ContentValues value=new ContentValues();
 	  value.put(toolutil.hour,hour);
 	  value.put(toolutil.minute,minute);
 	  value.put(toolutil.week,weeklast);
 	  value.put(toolutil.music,music);
-	  value.put(toolutil.lasttime,lasttime);
+	  value.put(toolutil.model,model);
 	  //value.put(toolutil.state,state);
 	   return db.update(toolutil.tablename, value, toolutil.id +" =" +id, null)>0;
 	  }
@@ -77,16 +77,16 @@ public class AlarmDao {
 	   return db.update(toolutil.tablename, value, toolutil.id+ " ="+id, null)>0;
 	  }
 	
-	public void insertData(int hour,int minute,String weeklast,String music,int lasttime ,int state)
+	public boolean insertData(int hour,int minute,String weeklast,String music,int model ,int state)
 	  {
 	     ContentValues value=new ContentValues();
 	    value.put(toolutil.hour,hour);
 	    value.put(toolutil.minute,minute);
 	    value.put(toolutil.week,weeklast);
 	    value.put(toolutil.music,music);
-	    value.put(toolutil.lasttime,lasttime);
+	    value.put(toolutil.model,model);
 	    value.put(toolutil.state,state);
-	    db.insert(toolutil.tablename, toolutil.music,value);//此处的红色标记是不用手动插入的字段而是系统自动分配的部分。如果你的id是自己定的这里可以设为空
+	    return db.insert(toolutil.tablename, toolutil.music,value)!=-1;//此处的红色标记是不用手动插入的字段而是系统自动分配的部分。如果你的id是自己定的这里可以设为空
 	  }
 	  public void deletedata(int id)
 	  {
@@ -94,9 +94,13 @@ public class AlarmDao {
 	  }
 	  public Cursor findcur(int id)
 	  {
-	   Cursor cur=db.query(toolutil.tablename, null, toolutil.id+ " ="+id, null, null, null, null);
-	   return cur;
+	   Cursor cursor=db.query(toolutil.tablename, null, toolutil.id+ " ="+id, null, null, null, null);
+	   return cursor;
 	   
+	  }
+	  public Cursor findall() {
+		Cursor cursor=db.query(toolutil.tablename, null, null, null, null, null, null);
+		return cursor;
 	  }
 	
 	

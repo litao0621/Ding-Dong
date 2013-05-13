@@ -21,7 +21,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		String createtable="create table " + toolutil.tablename + " (" +toolutil.id + " INTEGER PRIMARY KEY " +
-				", "+ toolutil.hour +" INTEGER ," + toolutil.minute +" INTEGER ," + toolutil.lasttime + " INTEGER ," + toolutil.week + " TEXT , " +toolutil.state
+				", "+ toolutil.hour +" INTEGER ," + toolutil.minute +" INTEGER ," + toolutil.model + " INTEGER ," + toolutil.week + " TEXT , " +toolutil.state
 				 +" INTEGER ," + toolutil.music + " TEXT " + ")";
 		db.execSQL(createtable);
 	}

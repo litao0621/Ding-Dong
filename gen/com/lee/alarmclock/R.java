@@ -54,39 +54,49 @@ public final class R {
         public static final int delete=0x7f02000e;
         public static final int deletepres=0x7f02000f;
         public static final int go=0x7f020010;
-        public static final int ic_launcher=0x7f020011;
-        public static final int modelswitch=0x7f020012;
-        public static final int save=0x7f020013;
-        public static final int savepres=0x7f020014;
-        public static final int switch_off=0x7f020015;
-        public static final int switch_on=0x7f020016;
-        public static final int titel=0x7f020017;
-        public static final int tmpicker_bg=0x7f020018;
-        public static final int tmpicker_val=0x7f020019;
+        public static final int itembg=0x7f020011;
+        public static final int logo=0x7f020012;
+        public static final int mianlist=0x7f020013;
+        public static final int modelswitch=0x7f020014;
+        public static final int off=0x7f020015;
+        public static final int on=0x7f020016;
+        public static final int save=0x7f020017;
+        public static final int savepres=0x7f020018;
+        public static final int switch_off=0x7f020019;
+        public static final int switch_on=0x7f02001a;
+        public static final int titel=0x7f02001b;
+        public static final int tmpicker_bg=0x7f02001c;
+        public static final int tmpicker_val=0x7f02001d;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000f;
-        public static final int addalarm=0x7f0a000d;
+        public static final int action_settings=0x7f0a0014;
+        public static final int addalarm=0x7f0a0010;
         public static final int back=0x7f0a0001;
         public static final int ckbModel=0x7f0a0007;
-        public static final int deletealarm=0x7f0a000c;
-        public static final int dispatch_item_select_state=0x7f0a000b;
-        public static final int dispatch_item_select_week=0x7f0a000a;
+        public static final int ckbstate=0x7f0a000c;
+        public static final int deletealarm=0x7f0a000f;
+        public static final int dispatch_item_select_state=0x7f0a000e;
+        public static final int dispatch_item_select_week=0x7f0a000d;
         public static final int hour=0x7f0a0008;
-        public static final int listweek=0x7f0a000e;
+        public static final int listalarmitem=0x7f0a0012;
+        public static final int listweek=0x7f0a0013;
         public static final int mins=0x7f0a0009;
+        public static final int model=0x7f0a000b;
         public static final int save=0x7f0a0002;
         public static final int setting=0x7f0a0004;
         public static final int setvoice=0x7f0a0006;
         public static final int setweek=0x7f0a0005;
+        public static final int shadow=0x7f0a0011;
+        public static final int time=0x7f0a000a;
         public static final int titel=0x7f0a0000;
         public static final int titel_shadow=0x7f0a0003;
     }
     public static final class layout {
         public static final int addalarm=0x7f030000;
-        public static final int itemweek=0x7f030001;
-        public static final int main=0x7f030002;
-        public static final int setweek=0x7f030003;
+        public static final int itemalarm=0x7f030001;
+        public static final int itemweek=0x7f030002;
+        public static final int main=0x7f030003;
+        public static final int setweek=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f090000;

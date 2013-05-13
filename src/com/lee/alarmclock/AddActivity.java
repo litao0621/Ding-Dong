@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import com.lee.dao.AlarmDao;
 import com.lee.model.WeekDialog;
 import com.lee.widget.CustomTimePick;
+
+import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -227,11 +231,25 @@ public class AddActivity extends Activity {
 		sqlState = ckbModel.isChecked() ? 1 : 0; // 保存闹钟模式状态码
 		sqlHour = hours.getCurrentItem();
 		sqlMinute = mins.getCurrentItem();
+		sqlMusic = "sys.mp3";
+		AlarmDao dao = new AlarmDao(AddActivity.this);
+		try {
 
-		Toast.makeText(
-				AddActivity.this,
-				"周期码：" + sqlWeekData + "  状态码" + sqlState + "时间" + sqlHour
-						+ ":" + sqlMinute, Toast.LENGTH_SHORT).show();
+			dao.openDB();
+			boolean falg = dao.insertData(sqlHour, sqlMinute, sqlWeekData,
+					sqlMusic, sqlState, 1);
+			if (falg) {
+				Toast.makeText(this, "闹钟添加成功", Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(this, "添加失败", Toast.LENGTH_SHORT).show();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			Log.e("db", e.getMessage());
+		} finally {
+			dao.relese();
+		}
+		
 	}
 
 	/**
