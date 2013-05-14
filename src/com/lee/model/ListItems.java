@@ -1,10 +1,22 @@
 package com.lee.model;
 
+/**
+ * 主activity的数据模型
+ * @author lee
+ *
+ */
 public class ListItems {
 	private String hour;
 	private String minute;
 	private String week;
 	private int state;
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getHour() {
 		return hour;
 	}

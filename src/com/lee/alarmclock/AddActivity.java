@@ -227,6 +227,9 @@ public class AddActivity extends Activity {
 
 	}
 
+	/**
+	 * 保存数据到数据库
+	 */
 	private void saveData() {
 		sqlState = ckbModel.isChecked() ? 1 : 0; // 保存闹钟模式状态码
 		sqlHour = hours.getCurrentItem();
@@ -245,13 +248,15 @@ public class AddActivity extends Activity {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			Log.e("db", e.getMessage());
+			Log.e("添加闹钟", e.getMessage());
 		} finally {
 			dao.relese();
 		}
 		
 	}
-
+	public void setAlarm() {
+		
+	}
 	/**
 	 * 为周期选择初始化数据
 	 */

@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class AlarmDao {
 	private DBOpenHelper alarmDB;
 	private SQLiteDatabase db;
-	private Context context;
+	
 	public SQLiteDatabase getDatabase() {
 		return db;
 	}
@@ -86,7 +86,7 @@ public class AlarmDao {
 	    value.put(toolutil.music,music);
 	    value.put(toolutil.model,model);
 	    value.put(toolutil.state,state);
-	    return db.insert(toolutil.tablename, toolutil.music,value)!=-1;//此处的红色标记是不用手动插入的字段而是系统自动分配的部分。如果你的id是自己定的这里可以设为空
+	    return db.insert(toolutil.tablename, toolutil.music,value)!=-1;
 	  }
 	  public void deletedata(int id)
 	  {

@@ -2,6 +2,7 @@ package com.lee.model;
 
 public class DBUtiles {
 	
+	
 	public static class toolutil {
 		 public static final String id="_id";
 		 public static final String week="WEEK"; //week字段是存储一周重复的星期参数,传入七位的0、1字符串（0代表没选）
