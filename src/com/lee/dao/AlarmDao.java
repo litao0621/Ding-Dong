@@ -32,9 +32,9 @@ public class AlarmDao {
 	 * @return  ·µ»ØID
 	 */
 	public int  findById(int hour,int minute,String weeklast) {
-		Cursor cur=db.query(toolutil.tablename, new String[]{toolutil.id}, toolutil.hour + "=" +hour +" and"
-			     + toolutil.minute +" =" + minute+" and " +toolutil.week +" = " +weeklast, null, null, null, null);
-		if(cur!=null)
+		Cursor cur=db.query(toolutil.tablename, new String[]{toolutil.id}, toolutil.hour + " =" +hour +" and "
+			     + toolutil.minute +" =" + minute+" and " +toolutil.week +" =" +"'"+weeklast+"'", null, null, null, null);
+		if(cur!=null&&cur.getCount()>0)
 		   {
 		    cur.moveToFirst();
 		    int id=cur.getInt(cur.getColumnIndex(toolutil.id));

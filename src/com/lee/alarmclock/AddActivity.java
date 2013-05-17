@@ -4,16 +4,22 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import com.lee.alarmclock.R.id;
 import com.lee.dao.AlarmDao;
 import com.lee.model.WeekDialog;
 import com.lee.widget.CustomTimePick;
 
 import android.R.integer;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +37,7 @@ import android.widget.Toast;
 import com.lee.widget.NumericTMAdapter;
 
 public class AddActivity extends Activity {
+	public static final String PREFS_NAME = "alarmId";
 	private TextView txtweek, txtvoice;
 	private ImageButton btnsave, btnback;
 	private ListView listweek;
@@ -44,6 +51,8 @@ public class AddActivity extends Activity {
 	private String sqlMusic; // 音乐名称
 	private int sqlState; // 提醒模式
 	private int sqlHour, sqlMinute; // 时， 分
+	private AlarmManager manager;
+	private Calendar c;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +102,8 @@ public class AddActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				saveData();
+				int id = findId();
+				setAlarm(id);
 				finish();
 			}
 		});
@@ -195,7 +206,7 @@ public class AddActivity extends Activity {
 		public long getItemId(int week) {
 			return week;
 		}
-
+		
 		@Override
 		public View getView(final int position, View convertView,
 				ViewGroup parent) {
@@ -252,11 +263,64 @@ public class AddActivity extends Activity {
 		} finally {
 			dao.relese();
 		}
+
+	}
+
+	private int findId() {
+		int id = 0;
+		AlarmDao dao = new AlarmDao(AddActivity.this);
+		try {
+
+			dao.openDB();
+
+			id = dao.findById(sqlHour, sqlMinute, sqlWeekData);
+			if (id == -1) {
+				Log.e("添加闹钟", "搜索id失败");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			Log.e("添加闹钟", e.getMessage());
+		} finally {
+			dao.relese();
+		}
+		return id;
+	}
+
+	public void setAlarm(int id) {
+
+		Calendar calendar = Calendar.getInstance();
+		c = Calendar.getInstance();
+		c.setTimeInMillis(System.currentTimeMillis());
+		c.set(Calendar.HOUR_OF_DAY, sqlHour);
+		c.set(Calendar.MINUTE, sqlMinute);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MILLISECOND, 0);
+
+		Intent intent = new Intent(AddActivity.this, CallAlarm.class);
+		intent.putExtra("id", id);
+		// 第二个参数代表闹钟的一个ID吧,这里不可以重复，重复的话，后一个会覆盖前一个
+		PendingIntent sender = PendingIntent.getBroadcast(AddActivity.this, id,
+				intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		manager = (AlarmManager) getSystemService(ALARM_SERVICE);
+		// 如果设置的时间比当前早就推迟一天
+		int time = (calendar.get(Calendar.HOUR_OF_DAY) * 60 * 60 * 1000 + calendar
+				.get(Calendar.MINUTE) * 60 * 1000) >= (sqlHour * 60 * 60 * 1000 + sqlMinute * 60 * 1000) ? 1000 * 60 * 60 * 24
+				: 0;
+		// 周期闹钟想了半天不知道该怎么实现，只好把第三个参数（延时再响）设置成一天
+		// 然后在响前和数据库对比，这一天该不该响
+		// 这显然不是个好办发，这个参数应该是设置像小睡这样的功能的
+		manager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis()
+				+ time, 60*1000, sender);
+		//AlarmManager.INTERVAL_DAY
+		//Toast.makeText(AddActivity.this, id + " ", Toast.LENGTH_SHORT).show();
+		// Toast.makeText(AddActivity.this,
+		// String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)+"--"+calendar
+		// .get(Calendar.MINUTE)+"--"+sqlHour+"--"+sqlMinute),
+		// Toast.LENGTH_SHORT).show();
 		
 	}
-	public void setAlarm() {
-		
-	}
+
 	/**
 	 * 为周期选择初始化数据
 	 */

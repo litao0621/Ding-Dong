@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 	private AlertDialog.Builder builder;
 	private int current_versionCode;
 	private final String apk_url = "http://test.com";//这是获取更新的路径，没有服务器，这里可以忽略
-	
+	private TextView noalarm;
 	private boolean swc=true;		//来变换删除按钮状态
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,11 @@ public class MainActivity extends Activity {
 		itemDate=initListData();
 		adapter.setDate(itemDate);
 		listItem.setAdapter(adapter);
+		if (listItem.getCount()>0) {
+			noalarm.setVisibility(View.GONE);
+		}else {
+			noalarm.setVisibility(View.VISIBLE);
+		}
 		adapter.notifyDataSetChanged();
 		btnDelete.getBackground().setLevel(0);
 	}
@@ -96,9 +101,10 @@ public class MainActivity extends Activity {
 	public void init() {
 		btnAdd = (ImageButton) findViewById(R.id.addalarm);
 		btnDelete = (ImageButton) findViewById(R.id.deletealarm);
-		
+		noalarm=(TextView)findViewById(R.id.noalarm);
 		listItem = (ListView) findViewById(R.id.listalarmitem);
 		listItem.setDivider(null); //去掉分割线
+		
 		itemDate = initListData();	
 		
 		builder = new AlertDialog.Builder(this);
@@ -132,6 +138,11 @@ public class MainActivity extends Activity {
 					swc=false;
 				}else {
 					adapter.setFlag(false);
+					if (listItem.getCount()>0) {
+						noalarm.setVisibility(View.GONE);
+					}else {
+						noalarm.setVisibility(View.VISIBLE);
+					}
 					adapter.notifyDataSetChanged();
 					btnDelete.getBackground().setLevel(0);
 					swc=true;

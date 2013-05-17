@@ -55,5 +55,14 @@
         android:layout_below="@+id/shadow">
         
     </ListView>
-
+	<TextView
+	    android:id="@+id/noalarm"
+	    android:layout_centerInParent="true"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="无闹钟"
+	    android:textSize="28sp"
+	    android:textColor="@color/black"
+	    android:textStyle="bold" 
+	    />
 </RelativeLayout>
